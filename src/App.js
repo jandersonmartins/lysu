@@ -1,9 +1,11 @@
 import React from 'react'
+import AppStyle from './App.style'
 
 const App = () => (
-  <div>
+  <>
+    <AppStyle />
     <h1>Lysu</h1>
-  </div>
+  </>
 )
 
 export default App
