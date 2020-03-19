@@ -4,7 +4,7 @@ import AppStyle from './App.style'
 const App = () => (
   <>
     <AppStyle />
-    <h1>Lysu</h1>
+    <a href="/">Lysu</a>
   </>
 )
 
