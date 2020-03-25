@@ -1,9 +1,12 @@
 import React from 'react'
+import * as S from './Header.styles'
 
 const Header = () => (
-  <h1>
-    <a href="/">Lysu</a>
-  </h1>
+  <S.Header>
+    <S.H1>
+      <a href="/">Lysu</a>
+    </S.H1>
+  </S.Header>
 )
 
 export default Header
