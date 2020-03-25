@@ -6,6 +6,7 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${props => props.theme.colors.primary};
 `
 
 const H1 = styled.h1`
