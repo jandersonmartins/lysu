@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Header = styled.header`
   height: 5rem;
-  border-bottom: .1rem solid rgba(216, 216, 216, .7);
+  border-bottom: .1rem solid ${props => props.theme.colors.primaryDark};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,7 @@ const Header = styled.header`
 
 const H1 = styled.h1`
   font-size: 2rem;
+  color: ${props => props.theme.colors.white};
 `
 
 export { Header, H1 }
