@@ -1,0 +1,12 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t jandersonmartins/lysu-test -f Dockerfile.test .
+
+script:
+  - docker run -e CI=true jandersonmartins/lysu-test
