@@ -13,6 +13,7 @@ const AppStyle = createGlobalStyle`
   }
 
   body {
+    font-family: 'Lato', sans-serif;
     box-sizing: border-box;
   }
 `

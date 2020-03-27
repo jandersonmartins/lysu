@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const Header = styled.header`
+  position: fixed;
+  width: 100vw;
   height: 5rem;
   border-bottom: .1rem solid ${props => props.theme.colors.primaryDark};
   display: flex;
