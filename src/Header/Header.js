@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '../Common'
+import { Link } from '../Link'
 import * as S from './Header.styles'
 
 const Header = () => (
