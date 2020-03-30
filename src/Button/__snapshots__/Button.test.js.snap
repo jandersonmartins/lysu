@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+.c0 {
+  padding: .6rem 1.2rem;
+  border: .1rem solid;
+  border-radius: .3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.c0:disabled {
+  opacity: .1;
+  cursor: not-allowed;
+}
+
+<button
+  class="c0"
+>
+  Click
+</button>
+`;
