@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import { Header } from './Header'
 import { Main } from './Main'
+import { Shopping } from './Shopping'
 import AppStyle from './App.style'
 
 const App = () => (
@@ -10,7 +11,7 @@ const App = () => (
     <AppStyle />
     <Header />
     <Main>
-      {/* TODO */}
+      <Shopping />
     </Main>
   </ThemeProvider>
 )

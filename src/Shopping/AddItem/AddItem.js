@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import * as S from './AddItem.styles'
 
 const AddItem = ({ onItem }) => {
   const [text, setText] = useState('')
@@ -12,7 +13,7 @@ const AddItem = ({ onItem }) => {
   }
 
   return (
-    <div>
+    <S.AddItem>
       <input
         placeholder="Add Item"
         onChange={handleChange}
@@ -23,8 +24,10 @@ const AddItem = ({ onItem }) => {
         type="button"
         disabled={!text.length}
         onClick={handleClick}
-      >Add Item</button>
-    </div>
+      >
+        Add Item
+      </button>
+    </S.AddItem>
   )
 }
 
