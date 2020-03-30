@@ -5,16 +5,23 @@ import {
   fireEvent,
   waitFor
 } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
 import AddItem from './AddItem'
 
+const renderCmp = (props = {}) => render(
+  <ThemeProvider theme={{ colors: {} }}>
+    <AddItem {...props} />
+  </ThemeProvider>
+)
+
 test('show disabled button when input is focused', () => {
-  render(<AddItem />)
+  renderCmp()
 
   expect(screen.getByText('Add Item')).toBeDisabled()
 })
 
 test('show enabled button when input is not empty', () => {
-  render(<AddItem />)
+  renderCmp()
 
   const input = screen.getByPlaceholderText('Add Item')
 
@@ -26,7 +33,7 @@ test('show enabled button when input is not empty', () => {
 test('call onItem callback with item', async () => {
   const mock = jest.fn()
 
-  render(<AddItem onItem={mock} />)
+  renderCmp({ onItem: mock })
 
   const input = screen.getByPlaceholderText('Add Item')
   const button = screen.getByText('Add Item')
