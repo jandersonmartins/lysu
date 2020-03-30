@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { Button } from '../../Button'
 import * as S from './AddItem.styles'
 
 const AddItem = ({ onItem }) => {
@@ -20,13 +21,9 @@ const AddItem = ({ onItem }) => {
         value={text}
       />
 
-      <button
-        type="button"
-        disabled={!text.length}
-        onClick={handleClick}
-      >
+      <Button disabled={!text.length} onClick={handleClick}>
         Add Item
-      </button>
+      </Button>
     </S.AddItem>
   )
 }
