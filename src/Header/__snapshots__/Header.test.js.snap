@@ -1,6 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correcty 1`] = `
+.c2 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c2:link,
 .c2:visited {
   font-size: inherit;
