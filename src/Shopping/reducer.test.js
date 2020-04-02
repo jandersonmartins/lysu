@@ -1,4 +1,8 @@
 import reducer, { INITIAL_STATE, Types } from './reducer'
+import shortid from 'shortid'
+
+jest.mock('shortid')
+shortid.mockImplementation(() => '1')
 
 test('returns initial state', () => {
   const actual = reducer(undefined, { type: 'UNKNOWN' })
@@ -19,7 +23,8 @@ test('handle ADD_ITEM action', () => {
     items: [{
       ...item,
       quantity: 0,
-      total: 0
+      total: 0,
+      id: '1'
     }]
   })
 })

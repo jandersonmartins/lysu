@@ -1,3 +1,5 @@
+import shortid from 'shortid'
+
 const INITIAL_STATE = {
   items: []
 }
@@ -21,7 +23,8 @@ const addNewItem = (state, action) => ({
   items: state.items.concat({
     ...action.item,
     quantity: 0,
-    total: 0
+    total: 0,
+    id: shortid.generate()
   })
 })
 
