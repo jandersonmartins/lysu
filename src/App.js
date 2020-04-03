@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
 import theme from './theme'
@@ -20,4 +21,4 @@ const App = () => (
   </ThemeProvider>
 )
 
-export default App
+export default hot(App)
