@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ShoppingListItem } from './ShoppingListItem'
+import * as S from './ShoppingList.styles'
 
 const ShoppingList = ({
   items,
   onQuantity,
   onValueChange
 }) => (
-  <ul>
+  <S.Ul>
     {items.map(item =>
       <ShoppingListItem
         key={item.id}
@@ -16,7 +17,7 @@ const ShoppingList = ({
         onValueChange={onValueChange}
       />
     )}
-  </ul>
+  </S.Ul>
 )
 
 ShoppingList.propTypes = {

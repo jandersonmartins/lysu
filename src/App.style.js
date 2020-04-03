@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 const AppStyle = createGlobalStyle`
   * {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
   }
 
   html {

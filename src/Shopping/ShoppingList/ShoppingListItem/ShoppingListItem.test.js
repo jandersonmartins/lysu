@@ -10,6 +10,28 @@ const renderCmp = props => render(
   <ShoppingListItem {...props} />
 )
 
+const openBottom = (screenArg, name) => {
+  const spanName = screenArg.getByText(name)
+  fireEvent.click(spanName)
+}
+
+test('show total value', () => {
+  const item = {
+    id: '1',
+    name: 'Beans',
+    quantity: 2,
+    total: 20
+  }
+
+  renderCmp({
+    item,
+    onQuantity: jest.fn(),
+    onValueChange: jest.fn()
+  })
+
+  screen.getByText('$ 40')
+})
+
 test('call decrement function', () => {
   const item = {
     id: '1',
@@ -24,6 +46,8 @@ test('call decrement function', () => {
     item,
     onQuantity
   })
+
+  openBottom(screen, item.name)
 
   const btn = screen.getByText('-')
   fireEvent.click(btn)
@@ -46,6 +70,8 @@ test('call increment function', () => {
     onQuantity
   })
 
+  openBottom(screen, item.name)
+
   const btn = screen.getByText('+')
   fireEvent.click(btn)
 
@@ -67,6 +93,8 @@ test('call onValueChange callback', () => {
     onQuantity: jest.fn(),
     onValueChange
   })
+
+  openBottom(screen, item.name)
 
   const input = screen.getByPlaceholderText('Value')
   fireEvent.change(input, { target: { value: 13 } })

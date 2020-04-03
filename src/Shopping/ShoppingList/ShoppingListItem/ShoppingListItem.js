@@ -1,31 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import * as S from './ShoppingListItem.styles'
 
 const ShoppingListItem = ({
   item,
   onQuantity,
   onValueChange
 }) => {
-  const decrement = () => onQuantity(item.id, 'decrement')
+  const [showBottom, setShowBottom] = useState(false)
 
-  const increment = () => onQuantity(item.id, 'increment')
+  const { total, quantity, id, name } = item
 
-  const handleChange = evt => onValueChange(item.id, evt.target.value)
+  const decrement = () => onQuantity(id, 'decrement')
+
+  const increment = () => onQuantity(id, 'increment')
+
+  const handleChange = evt => onValueChange(id, evt.target.value)
+
+  const toggleShow = () => setShowBottom(!showBottom)
 
   return (
-    <li>
-      <span>{item.name}</span>
-      <span>{item.quantity}</span>
+    <S.Li>
+      <div>
+        <span onClick={toggleShow}>{name}</span>
+        <span>$ {total * quantity}</span>
+      </div>
 
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
+      {showBottom && (
+        <S.Bottom>
+          <S.BottomDivisor>
+            <button onClick={decrement}>-</button>
+            <span>{quantity}</span>
+            <button onClick={increment}>+</button>
+          </S.BottomDivisor>
 
-      <input
-        type="text"
-        placeholder="Value"
-        onChange={handleChange}
-      />
-    </li>
+          <S.BottomDivisor>
+            <S.Input
+              type="text"
+              placeholder="Value"
+              value={total}
+              onChange={handleChange}
+            />
+          </S.BottomDivisor>
+        </S.Bottom>
+      )}
+    </S.Li>
   )
 }
 
