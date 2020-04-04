@@ -41,6 +41,10 @@ const BottomDivisor = styled.div`
   align-items: center;
 `
 
+const Quantity = styled(Span)`
+  margin: 0 .5rem;
+`
+
 const Input = styled(CommonInput)`
   width: 100%;
 `
@@ -51,5 +55,6 @@ export {
   Span,
   Bottom,
   BottomDivisor,
+  Quantity,
   Input
 }

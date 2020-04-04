@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { RoundButton } from './RoundButton'
 import * as S from './ShoppingListItem.styles'
 
 const ShoppingListItem = ({
@@ -29,9 +30,9 @@ const ShoppingListItem = ({
       {showBottom && (
         <S.Bottom>
           <S.BottomDivisor>
-            <button onClick={decrement}>-</button>
-            <S.Span>{quantity}</S.Span>
-            <button onClick={increment}>+</button>
+            <RoundButton onClick={decrement}>-</RoundButton>
+            <S.Quantity>{quantity}</S.Quantity>
+            <RoundButton onClick={increment}>+</RoundButton>
           </S.BottomDivisor>
 
           <S.BottomDivisor>
