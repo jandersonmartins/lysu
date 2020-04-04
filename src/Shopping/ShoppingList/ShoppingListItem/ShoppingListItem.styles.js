@@ -20,13 +20,25 @@ const Li = styled.li`
   }
 `
 
+const Top = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const Span = styled.span`
+  font-size: 1.6rem;
+`
+
 const Bottom = styled.div`
   display: flex;
   justify-content: space-around;
+  padding-top: 1rem;
 `
 
 const BottomDivisor = styled.div`
   width: 50%;
+  display: flex;
+  align-items: center;
 `
 
 const Input = styled(CommonInput)`
@@ -35,6 +47,8 @@ const Input = styled(CommonInput)`
 
 export {
   Li,
+  Top,
+  Span,
   Bottom,
   BottomDivisor,
   Input

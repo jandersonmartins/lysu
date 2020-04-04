@@ -21,16 +21,16 @@ const ShoppingListItem = ({
 
   return (
     <S.Li>
-      <div>
-        <span onClick={toggleShow}>{name}</span>
-        <span>$ {total * quantity}</span>
-      </div>
+      <S.Top>
+        <S.Span onClick={toggleShow}>{name}</S.Span>
+        <S.Span>$ {total * quantity}</S.Span>
+      </S.Top>
 
       {showBottom && (
         <S.Bottom>
           <S.BottomDivisor>
             <button onClick={decrement}>-</button>
-            <span>{quantity}</span>
+            <S.Span>{quantity}</S.Span>
             <button onClick={increment}>+</button>
           </S.BottomDivisor>
 
