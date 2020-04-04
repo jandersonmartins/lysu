@@ -4,10 +4,13 @@ import {
   screen,
   fireEvent
 } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
 import ShoppingListItem from './ShoppingListItem'
 
 const renderCmp = props => render(
-  <ShoppingListItem {...props} />
+  <ThemeProvider theme={{ colors: {} }}>
+    <ShoppingListItem {...props} />
+  </ThemeProvider>
 )
 
 const openBottom = (screenArg, name) => {
