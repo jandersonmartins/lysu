@@ -7,7 +7,8 @@ import * as S from './ShoppingListItem.styles'
 const ShoppingListItem = ({
   item,
   onQuantity,
-  onValueChange
+  onValueChange,
+  onRemove
 }) => {
   const [showBottom, setShowBottom] = useState(false)
 
@@ -47,7 +48,7 @@ const ShoppingListItem = ({
             </S.Handlers>
           </S.HandlersSection>
 
-          <RemoveButton />
+          <RemoveButton onClick={() => onRemove(id)} />
         </S.Bottom>
       )}
     </S.Li>
@@ -62,7 +63,8 @@ ShoppingListItem.propTypes = {
     name: PropTypes.string
   }),
   onQuantity: PropTypes.func,
-  onValueChange: PropTypes.func
+  onValueChange: PropTypes.func,
+  onRemove: PropTypes.func
 }
 
 export default ShoppingListItem

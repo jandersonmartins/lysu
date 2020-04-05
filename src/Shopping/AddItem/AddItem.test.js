@@ -17,17 +17,17 @@ const renderCmp = (props = {}) => render(
 test('show disabled button when input is focused', () => {
   renderCmp()
 
-  expect(screen.getByText('Add Item')).toBeDisabled()
+  expect(screen.getByText('Adicionar')).toBeDisabled()
 })
 
 test('show enabled button when input is not empty', () => {
   renderCmp()
 
-  const input = screen.getByPlaceholderText('Add Item')
+  const input = screen.getByPlaceholderText('Adicionar')
 
   fireEvent.change(input, { target: { value: 'Bean' } })
 
-  expect(screen.getByText('Add Item')).toBeEnabled()
+  expect(screen.getByText('Adicionar')).toBeEnabled()
 })
 
 test('call onItem callback with item', async () => {
@@ -35,8 +35,8 @@ test('call onItem callback with item', async () => {
 
   renderCmp({ onItem: mock })
 
-  const input = screen.getByPlaceholderText('Add Item')
-  const button = screen.getByText('Add Item')
+  const input = screen.getByPlaceholderText('Adicionar')
+  const button = screen.getByText('Adicionar')
 
   fireEvent.change(input, { target: { value: 'Rice' } })
   fireEvent.click(button)

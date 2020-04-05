@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Button } from '../../Button'
-import { Input } from '../../Input'
 import * as S from './AddItem.styles'
 
 const AddItem = ({ onItem }) => {
@@ -16,15 +14,15 @@ const AddItem = ({ onItem }) => {
 
   return (
     <S.AddItem>
-      <Input
-        placeholder="Add Item"
+      <S.Input
+        placeholder="Adicionar"
         onChange={handleChange}
         value={text}
       />
 
-      <Button disabled={!text.length} onClick={handleClick}>
-        Add Item
-      </Button>
+      <S.Buttom disabled={!text.length} onClick={handleClick}>
+        Adicionar
+      </S.Buttom>
     </S.AddItem>
   )
 }

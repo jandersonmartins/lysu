@@ -104,3 +104,23 @@ test('call onValueChange callback', () => {
 
   expect(onValueChange).toBeCalledWith(item.id, '13')
 })
+
+test('call onRemove callback', () => {
+  const item = {
+    id: '1',
+    name: 'Beans',
+    quantity: 1,
+    total: 20
+  }
+
+  const onRemove = jest.fn()
+
+  renderCmp({ item, onRemove })
+
+  openBottom(screen, item.name)
+
+  const removeBtn = screen.getByText('Remover')
+  fireEvent.click(removeBtn)
+
+  expect(onRemove).toBeCalledWith(item.id)
+})

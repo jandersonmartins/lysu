@@ -22,8 +22,8 @@ test('start empty items', () => {
 test('add a new item', () => {
   renderCmp()
 
-  const input = screen.getByPlaceholderText('Add Item')
-  const btn = screen.getByText('Add Item')
+  const input = screen.getByPlaceholderText('Adicionar')
+  const btn = screen.getByText('Adicionar')
 
   fireEvent.change(input, { target: { value: 'Oil' } })
   fireEvent.click(btn)
