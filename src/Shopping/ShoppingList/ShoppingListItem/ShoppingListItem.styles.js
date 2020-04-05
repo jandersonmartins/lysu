@@ -5,8 +5,7 @@ const Li = styled.li`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 1rem 2rem;
-  border: .1rem solid #D8D8D8;
+  border: .1rem solid ${props => props.theme.colors.defaultBorderColor};
   border-radius: .3rem;
 
   margin: 1rem 0;
@@ -23,6 +22,8 @@ const Li = styled.li`
 const Top = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
+  border-bottom: .1rem solid ${props => props.theme.colors.defaultBorderColor};
 `
 
 const Span = styled.span`
@@ -31,11 +32,15 @@ const Span = styled.span`
 
 const Bottom = styled.div`
   display: flex;
-  justify-content: space-around;
-  padding-top: 1rem;
+  flex-direction: column;
 `
 
-const BottomDivisor = styled.div`
+const HandlersSection = styled.div`
+  display: flex;
+  padding: 1rem;
+`
+
+const Handlers = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
@@ -54,7 +59,8 @@ export {
   Top,
   Span,
   Bottom,
-  BottomDivisor,
+  HandlersSection,
+  Handlers,
   Quantity,
   Input
 }
