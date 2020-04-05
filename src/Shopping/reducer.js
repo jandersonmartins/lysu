@@ -6,7 +6,8 @@ const INITIAL_STATE = {
 
 const Types = {
   ADD_ITEM: 'ADD_ITEM',
-  DECREMENT_ITEM: 'DECREMENT_ITEM'
+  DECREMENT_ITEM: 'DECREMENT_ITEM',
+  INCREMENT_ITEM: 'INCREMENT_ITEM'
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -15,7 +16,10 @@ const reducer = (state = INITIAL_STATE, action) => {
       return addNewItem(state, action)
 
     case Types.DECREMENT_ITEM:
-      return decrement(state, action)
+      return operateQuantity(decrement, state, action)
+
+    case Types.INCREMENT_ITEM:
+      return operateQuantity(increment, state, action)
 
     default:
       return { ...state }
@@ -32,18 +36,22 @@ const addNewItem = (state, action) => ({
   })
 })
 
-const decrement = (state, { id }) => ({
+const operateQuantity = (operation, state, { id }) => ({
   ...state,
   items: state.items.map(item => {
     if (item.id === id) {
       return {
         ...item,
-        quantity: item.quantity - 1
+        quantity: operation(item)
       }
     }
     return item
   })
 })
+
+const decrement = item => item.quantity - 1
+
+const increment = item => item.quantity + 1
 
 export default reducer
 
