@@ -1,3 +1,5 @@
-import * as S from './Input.styles'
+import { Input, BaseStyles } from './Input.styles'
 
-export default S.Input
+export default Input
+
+export { BaseStyles }

@@ -18,7 +18,7 @@ const ShoppingListItem = ({
 
   const increment = () => onQuantity(id, 'increment')
 
-  const handleChange = evt => onValueChange(id, evt.target.value)
+  const handleChange = (masked, value) => onValueChange(id, value)
 
   const toggleShow = () => setShowBottom(!showBottom)
 

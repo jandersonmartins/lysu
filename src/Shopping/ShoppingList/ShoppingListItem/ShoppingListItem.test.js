@@ -86,7 +86,7 @@ test('call onValueChange callback', () => {
     id: '1',
     name: 'Beans',
     quantity: 1,
-    value: 20
+    value: 0
   }
 
   const onValueChange = jest.fn()
@@ -102,7 +102,7 @@ test('call onValueChange callback', () => {
   const input = screen.getByPlaceholderText('Value')
   fireEvent.change(input, { target: { value: 13 } })
 
-  expect(onValueChange).toBeCalledWith(item.id, '13')
+  expect(onValueChange).toBeCalledWith(item.id, 0.13)
 })
 
 test('call onRemove callback', () => {

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { Input as CommonInput } from '../../../Input'
+import CurrencyInput from 'react-currency-input'
+import { BaseStyles } from '../../../Input'
 
 const Li = styled.li`
   display: flex;
@@ -50,8 +51,9 @@ const Quantity = styled(Span)`
   margin: 0 .5rem;
 `
 
-const Input = styled(CommonInput)`
+const Input = styled(CurrencyInput)`
   width: 100%;
+  ${BaseStyles}
 `
 
 export {

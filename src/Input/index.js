@@ -1,3 +1,3 @@
-import Input from './Input'
+import Input, { BaseStyles } from './Input'
 
-export { Input }
+export { Input, BaseStyles }
