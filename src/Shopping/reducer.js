@@ -63,7 +63,10 @@ const removeItem = (state, { id }) => ({
   items: state.items.filter(item => item.id !== id)
 })
 
-const decrement = item => ({ ...item, quantity: item.quantity - 1 })
+const decrement = item => {
+  const { quantity } = item
+  return !quantity ? item : ({ ...item, quantity: quantity - 1 })
+}
 
 const increment = item => ({ ...item, quantity: item.quantity + 1 })
 

@@ -67,6 +67,37 @@ test('handle DECREMENT_ITEM action', () => {
   })
 })
 
+test('handle DECREMENT_ITEM action when value is zero', () => {
+  const beforeState = {
+    ...INITIAL_STATE,
+    items: [
+      {
+        name: 'Beans',
+        quantity: 0,
+        value: 0,
+        id: '1'
+      }
+    ]
+  }
+
+  const actual = reducer(beforeState, {
+    type: Types.DECREMENT_ITEM,
+    id: '1'
+  })
+
+  expect(actual).toEqual({
+    ...INITIAL_STATE,
+    items: [
+      {
+        name: 'Beans',
+        quantity: 0,
+        value: 0,
+        id: '1'
+      }
+    ]
+  })
+})
+
 test('handle INCREMENT_ITEM action', () => {
   const beforeState = {
     ...INITIAL_STATE,
