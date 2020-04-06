@@ -13,6 +13,25 @@ const Shopping = () => {
     item: { name }
   })
 
+  const handleQuantity = (id, operation) => {
+    const type = (operation === 'increment')
+      ? Types.INCREMENT_ITEM
+      : Types.DECREMENT_ITEM
+
+    dispatch({ type, id })
+  }
+
+  const handleChange = (id, value) => dispatch({
+    type: Types.CHANGE_ITEM_VALUE,
+    id,
+    value
+  })
+
+  const handleRemove = id => dispatch({
+    type: Types.REMOVE_ITEM,
+    id
+  })
+
   return (
     <div>
       <div>
@@ -27,9 +46,9 @@ const Shopping = () => {
         <S.ListContainer>
           <ShoppingList
             items={state.items}
-            onQuantity={console.log}
-            onValueChange={console.log}
-            onRemove={console.log}
+            onQuantity={handleQuantity}
+            onValueChange={handleChange}
+            onRemove={handleRemove}
           />
         </S.ListContainer>
       </div>
