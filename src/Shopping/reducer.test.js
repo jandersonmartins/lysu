@@ -104,3 +104,33 @@ test('handle INCREMENT_ITEM action', () => {
     ]
   })
 })
+
+test('handle REMOVE_ITEM action', () => {
+  const beforeState = {
+    ...INITIAL_STATE,
+    items: [
+      {
+        name: 'Beans',
+        quantity: 3,
+        total: 0,
+        id: '1'
+      },
+      {
+        name: 'Rice',
+        quantity: 31,
+        total: 0,
+        id: '2'
+      }
+    ]
+  }
+
+  const actual = reducer(beforeState, {
+    type: Types.REMOVE_ITEM,
+    id: '1'
+  })
+
+  expect(actual).toEqual({
+    ...beforeState,
+    items: [beforeState.items[1]]
+  })
+})
