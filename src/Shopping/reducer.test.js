@@ -23,7 +23,7 @@ test('handle ADD_ITEM action', () => {
     items: [{
       ...item,
       quantity: 0,
-      total: 0,
+      value: 0,
       id: '1'
     }]
   })
@@ -36,13 +36,13 @@ test('handle DECREMENT_ITEM action', () => {
       {
         name: 'Beans',
         quantity: 3,
-        total: 0,
+        value: 0,
         id: '1'
       },
       {
         name: 'Rice',
         quantity: 31,
-        total: 0,
+        value: 0,
         id: '2'
       }
     ]
@@ -59,7 +59,7 @@ test('handle DECREMENT_ITEM action', () => {
       {
         name: 'Beans',
         quantity: 2,
-        total: 0,
+        value: 0,
         id: '1'
       },
       beforeState.items[1]
@@ -74,13 +74,13 @@ test('handle INCREMENT_ITEM action', () => {
       {
         name: 'Beans',
         quantity: 3,
-        total: 0,
+        value: 0,
         id: '1'
       },
       {
         name: 'Rice',
         quantity: 31,
-        total: 0,
+        value: 0,
         id: '2'
       }
     ]
@@ -97,7 +97,7 @@ test('handle INCREMENT_ITEM action', () => {
       {
         name: 'Beans',
         quantity: 4,
-        total: 0,
+        value: 0,
         id: '1'
       },
       beforeState.items[1]
@@ -112,13 +112,13 @@ test('handle REMOVE_ITEM action', () => {
       {
         name: 'Beans',
         quantity: 3,
-        total: 0,
+        value: 0,
         id: '1'
       },
       {
         name: 'Rice',
         quantity: 31,
-        total: 0,
+        value: 0,
         id: '2'
       }
     ]
@@ -132,5 +132,42 @@ test('handle REMOVE_ITEM action', () => {
   expect(actual).toEqual({
     ...beforeState,
     items: [beforeState.items[1]]
+  })
+})
+
+test('handle CHANGE_ITEM_VALUE', () => {
+  const beforeState = {
+    ...INITIAL_STATE,
+    items: [
+      {
+        name: 'Beans',
+        quantity: 3,
+        value: 0,
+        id: '1'
+      },
+      {
+        name: 'Rice',
+        quantity: 31,
+        value: 0,
+        id: '2'
+      }
+    ]
+  }
+
+  const actual = reducer(beforeState, {
+    type: Types.CHANGE_ITEM_VALUE,
+    id: '2',
+    value: 10
+  })
+
+  expect(actual).toEqual({
+    ...beforeState,
+    items: [
+      beforeState.items[0],
+      {
+        ...beforeState.items[1],
+        value: 10
+      }
+    ]
   })
 })
