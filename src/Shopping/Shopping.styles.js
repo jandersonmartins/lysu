@@ -5,4 +5,11 @@ const ListContainer = styled.div`
   justify-content: center;
 `
 
-export { ListContainer }
+const TotalItemsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+`
+
+export { ListContainer, TotalItemsContainer }

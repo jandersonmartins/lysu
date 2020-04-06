@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+.c0 {
+  font-size: 1.4rem;
+}
+
+.c1 {
+  font-weight: 700;
+}
+
+<span
+  class="c0"
+>
+  Items 
+  <strong
+    class="c1"
+  >
+    1
+  </strong>
+</span>
+`;

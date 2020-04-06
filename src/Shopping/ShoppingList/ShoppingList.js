@@ -6,7 +6,8 @@ import * as S from './ShoppingList.styles'
 const ShoppingList = ({
   items,
   onQuantity,
-  onValueChange
+  onValueChange,
+  onRemove
 }) => (
   <S.Ul>
     {items.map(item =>
@@ -15,6 +16,7 @@ const ShoppingList = ({
         item={item}
         onQuantity={onQuantity}
         onValueChange={onValueChange}
+        onRemove={onRemove}
       />
     )}
   </S.Ul>
@@ -30,7 +32,8 @@ ShoppingList.propTypes = {
     })
   ),
   onQuantity: PropTypes.func,
-  onValueChange: PropTypes.func
+  onValueChange: PropTypes.func,
+  onRemove: PropTypes.func
 }
 
 export default ShoppingList

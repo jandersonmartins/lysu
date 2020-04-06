@@ -2,6 +2,7 @@ import React, { useReducer } from 'react'
 import reducer, { INITIAL_STATE, Types } from './reducer'
 import { AddItem } from './AddItem'
 import { ShoppingList } from './ShoppingList'
+import { TotalItems } from './TotalItems'
 import * as S from './Shopping.styles'
 
 const Shopping = () => {
@@ -18,15 +19,17 @@ const Shopping = () => {
         <AddItem onItem={handleOnItem} />
       </div>
 
-      <div>
-        {/** TODO: Total items component */}
-        Items {state.items.length}
+      <S.TotalItemsContainer>
+        <TotalItems items={state.items} />
+      </S.TotalItemsContainer>
 
+      <div>
         <S.ListContainer>
           <ShoppingList
             items={state.items}
             onQuantity={console.log}
             onValueChange={console.log}
+            onRemove={console.log}
           />
         </S.ListContainer>
       </div>
