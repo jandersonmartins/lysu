@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { RoundButton } from './RoundButton'
 import { RemoveButton } from './RemoveButton'
+import { formatCurrency } from '../../helpers'
 import * as S from './ShoppingListItem.styles'
 
 const ShoppingListItem = ({
@@ -26,7 +27,7 @@ const ShoppingListItem = ({
     <S.Li>
       <S.Top>
         <S.Span onClick={toggleShow}>{name}</S.Span>
-        <S.Span>$ {value * quantity}</S.Span>
+        <S.Span>{formatCurrency(value * quantity)}</S.Span>
       </S.Top>
 
       {showBottom && (
@@ -44,6 +45,8 @@ const ShoppingListItem = ({
                 placeholder="Value"
                 value={value}
                 onChange={handleChange}
+                decimalSeparator=","
+                thousandSeparator="."
               />
             </S.Handlers>
           </S.HandlersSection>
