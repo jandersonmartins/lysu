@@ -2,11 +2,12 @@ import React, { useReducer } from 'react'
 import reducer, { INITIAL_STATE, Types } from './reducer'
 import { AddItem } from './AddItem'
 import { ShoppingList } from './ShoppingList'
-import { TotalItems } from './TotalItems'
+import { Totals } from './Totals'
+import { totalValue } from './helpers'
 import * as S from './Shopping.styles'
 
 const Shopping = () => {
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+  const [{ items }, dispatch] = useReducer(reducer, INITIAL_STATE)
 
   const handleOnItem = name => dispatch({
     type: Types.ADD_ITEM,
@@ -39,13 +40,14 @@ const Shopping = () => {
       </div>
 
       <S.TotalItemsContainer>
-        <TotalItems items={state.items} />
+        <Totals label="Items" value={items.length} />
+        <Totals label="Valor Total" value={totalValue(items)} />
       </S.TotalItemsContainer>
 
       <div>
         <S.ListContainer>
           <ShoppingList
-            items={state.items}
+            items={items}
             onQuantity={handleQuantity}
             onValueChange={handleChange}
             onRemove={handleRemove}

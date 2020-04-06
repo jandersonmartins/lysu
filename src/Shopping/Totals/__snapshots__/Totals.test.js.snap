@@ -12,11 +12,12 @@ exports[`renders correctly 1`] = `
 <span
   class="c0"
 >
-  Items 
+  Items
+   
   <strong
     class="c1"
   >
-    1
+    20
   </strong>
 </span>
 `;
