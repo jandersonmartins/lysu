@@ -1,5 +1,5 @@
 const formatCurrency = value => {
-  const formated = value.toLocaleString('pt-BR',{
+  const formated = value.toLocaleString('pt-BR', {
     inimumFractionDigits: 2,
     maximumFractionDigits: 2
   })

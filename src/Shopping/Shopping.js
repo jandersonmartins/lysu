@@ -41,6 +41,7 @@ const Shopping = () => {
 
       <S.TotalItemsContainer>
         <Totals label="Items" value={items.length} />
+        <S.Divisor />
         <Totals label="Valor Total" value={totalValue(items)} />
       </S.TotalItemsContainer>
 

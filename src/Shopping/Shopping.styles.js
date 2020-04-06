@@ -12,4 +12,15 @@ const TotalItemsContainer = styled.div`
   height: 5rem;
 `
 
-export { ListContainer, TotalItemsContainer }
+const Divisor = styled.div`
+  height: 50%;
+  width: .1rem;
+  margin: 0 .7rem;
+  background-color: ${props => props.theme.colors.defaultBorderColor};
+`
+
+export {
+  ListContainer,
+  TotalItemsContainer,
+  Divisor
+}
