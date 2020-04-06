@@ -18,12 +18,12 @@ const openBottom = (screenArg, name) => {
   fireEvent.click(spanName)
 }
 
-test('show total value', () => {
+test('show value value', () => {
   const item = {
     id: '1',
     name: 'Beans',
     quantity: 2,
-    total: 20
+    value: 20
   }
 
   renderCmp({
@@ -40,7 +40,7 @@ test('call decrement function', () => {
     id: '1',
     name: 'Beans',
     quantity: 1,
-    total: 20
+    value: 20
   }
 
   const onQuantity = jest.fn()
@@ -63,7 +63,7 @@ test('call increment function', () => {
     id: '1',
     name: 'Beans',
     quantity: 1,
-    total: 20
+    value: 20
   }
 
   const onQuantity = jest.fn()
@@ -86,7 +86,7 @@ test('call onValueChange callback', () => {
     id: '1',
     name: 'Beans',
     quantity: 1,
-    total: 20
+    value: 20
   }
 
   const onValueChange = jest.fn()
@@ -110,7 +110,7 @@ test('call onRemove callback', () => {
     id: '1',
     name: 'Beans',
     quantity: 1,
-    total: 20
+    value: 20
   }
 
   const onRemove = jest.fn()

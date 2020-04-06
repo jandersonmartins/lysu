@@ -12,7 +12,7 @@ const ShoppingListItem = ({
 }) => {
   const [showBottom, setShowBottom] = useState(false)
 
-  const { total, quantity, id, name } = item
+  const { value, quantity, id, name } = item
 
   const decrement = () => onQuantity(id, 'decrement')
 
@@ -26,7 +26,7 @@ const ShoppingListItem = ({
     <S.Li>
       <S.Top>
         <S.Span onClick={toggleShow}>{name}</S.Span>
-        <S.Span>$ {total * quantity}</S.Span>
+        <S.Span>$ {value * quantity}</S.Span>
       </S.Top>
 
       {showBottom && (
@@ -42,7 +42,7 @@ const ShoppingListItem = ({
               <S.Input
                 type="text"
                 placeholder="Value"
-                value={total}
+                value={value}
                 onChange={handleChange}
               />
             </S.Handlers>
@@ -59,7 +59,7 @@ ShoppingListItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string,
     quantity: PropTypes.number,
-    total: PropTypes.number,
+    value: PropTypes.number,
     name: PropTypes.string
   }),
   onQuantity: PropTypes.func,

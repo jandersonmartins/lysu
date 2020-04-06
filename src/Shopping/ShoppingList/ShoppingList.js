@@ -25,7 +25,7 @@ ShoppingList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       quantity: PropTypes.number,
-      total: PropTypes.number,
+      value: PropTypes.number,
       name: PropTypes.string
     })
   ),
