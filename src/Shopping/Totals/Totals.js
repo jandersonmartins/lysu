@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as S from './Totals.styles'
 
-const Totals = ({ label, value }) => (
-  <S.Span>{label} <S.Strong>{value}</S.Strong></S.Span>
+const Totals = ({ label, value, ...props }) => (
+  <S.Span {...props}>{label} <S.Strong>{value}</S.Strong></S.Span>
 )
 
 Totals.propTypes = {

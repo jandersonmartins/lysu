@@ -18,6 +18,7 @@ const AddItem = ({ onItem }) => {
         placeholder="Adicionar"
         onChange={handleChange}
         value={text}
+        name="new_item"
       />
 
       <S.Buttom disabled={!text.length} onClick={handleClick}>

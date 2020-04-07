@@ -27,16 +27,16 @@ const ShoppingListItem = ({
     <S.Li>
       <S.Top>
         <S.Span onClick={toggleShow}>{name}</S.Span>
-        <S.Span>{formatCurrency(value * quantity)}</S.Span>
+        <S.Span data-test="total-item">{formatCurrency(value * quantity)}</S.Span>
       </S.Top>
 
       {showBottom && (
         <S.Bottom>
           <S.HandlersSection>
             <S.Handlers>
-              <RoundButton onClick={decrement}>-</RoundButton>
-              <S.Quantity>{quantity}</S.Quantity>
-              <RoundButton onClick={increment}>+</RoundButton>
+              <RoundButton data-test="quantity-decrement" onClick={decrement}>-</RoundButton>
+              <S.Quantity data-test="quantity">{quantity}</S.Quantity>
+              <RoundButton data-test="quantity-increment" onClick={increment}>+</RoundButton>
             </S.Handlers>
 
             <S.Handlers>
@@ -44,6 +44,7 @@ const ShoppingListItem = ({
                 type="text"
                 placeholder="Value"
                 value={value}
+                name="value"
                 onChange={handleChange}
                 decimalSeparator=","
                 thousandSeparator="."
@@ -51,7 +52,7 @@ const ShoppingListItem = ({
             </S.Handlers>
           </S.HandlersSection>
 
-          <RemoveButton onClick={() => onRemove(id)} />
+          <RemoveButton data-test="remove-item" onClick={() => onRemove(id)} />
         </S.Bottom>
       )}
     </S.Li>
