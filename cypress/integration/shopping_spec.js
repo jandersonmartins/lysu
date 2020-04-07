@@ -1,4 +1,4 @@
-describe('Home screen', () => {
+describe('Shopping flow', () => {
   before(() => {
     cy.visit('/')
   })
