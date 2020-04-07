@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react'
+import React from 'react'
+import createPersistedReducer from 'use-persisted-reducer'
 import reducer, { INITIAL_STATE, Types } from './reducer'
 import { AddItem } from './AddItem'
 import { ShoppingList } from './ShoppingList'
@@ -6,8 +7,10 @@ import { Totals } from './Totals'
 import { totalValue } from './helpers'
 import * as S from './Shopping.styles'
 
+const usePersistedReducer = createPersistedReducer('shopping')
+
 const Shopping = () => {
-  const [{ items }, dispatch] = useReducer(reducer, INITIAL_STATE)
+  const [{ items }, dispatch] = usePersistedReducer(reducer, INITIAL_STATE)
 
   const handleOnItem = name => dispatch({
     type: Types.ADD_ITEM,
