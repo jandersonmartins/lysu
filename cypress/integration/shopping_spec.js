@@ -11,10 +11,6 @@ describe('Shopping flow', () => {
     cy.get('[name="new_item"]').type('Beans')
     cy.contains('Adicionar').click()
 
-    // open handlers
-    cy.contains('Rice').click()
-    cy.contains('Beans').click()
-
     // increment quantity
     cy.get('[data-test="quantity-increment"]')
       .first()

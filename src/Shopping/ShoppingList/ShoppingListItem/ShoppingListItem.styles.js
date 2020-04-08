@@ -25,6 +25,7 @@ const Top = styled.div`
   justify-content: space-between;
   padding: 1rem;
   border-bottom: .1rem solid ${props => props.theme.colors.defaultBorderColor};
+  cursor: pointer;
 `
 
 const Span = styled.span`

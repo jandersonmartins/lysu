@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import {
+  FaCaretDown,
+  FaCaretUp,
+  FaPlus,
+  FaMinus
+} from 'react-icons/fa'
 import { RoundButton } from './RoundButton'
 import { RemoveButton } from './RemoveButton'
 import { formatCurrency } from '../../helpers'
@@ -11,7 +17,7 @@ const ShoppingListItem = ({
   onValueChange,
   onRemove
 }) => {
-  const [showBottom, setShowBottom] = useState(false)
+  const [showBottom, setShowBottom] = useState(true)
 
   const { value, quantity, id, name } = item
 
@@ -23,10 +29,13 @@ const ShoppingListItem = ({
 
   const toggleShow = () => setShowBottom(!showBottom)
 
+  const getIcon = () =>
+    showBottom ? <FaCaretUp /> : <FaCaretDown />
+
   return (
     <S.Li>
-      <S.Top>
-        <S.Span onClick={toggleShow}>{name}</S.Span>
+      <S.Top onClick={toggleShow}>
+        <S.Span>{name} {getIcon()}</S.Span>
         <S.Span data-test="total-item">{formatCurrency(value * quantity)}</S.Span>
       </S.Top>
 
@@ -34,9 +43,15 @@ const ShoppingListItem = ({
         <S.Bottom>
           <S.HandlersSection>
             <S.Handlers>
-              <RoundButton data-test="quantity-decrement" onClick={decrement}>-</RoundButton>
+              <RoundButton data-test="quantity-decrement" onClick={decrement}>
+                <FaMinus />
+              </RoundButton>
+
               <S.Quantity data-test="quantity">{quantity}</S.Quantity>
-              <RoundButton data-test="quantity-increment" onClick={increment}>+</RoundButton>
+
+              <RoundButton data-test="quantity-increment" onClick={increment}>
+                <FaPlus/>
+              </RoundButton>
             </S.Handlers>
 
             <S.Handlers>

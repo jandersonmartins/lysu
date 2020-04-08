@@ -2,21 +2,19 @@ import React from 'react'
 import {
   render,
   screen,
-  fireEvent
+  fireEvent,
+  configure
 } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import ShoppingListItem from './ShoppingListItem'
+
+configure({ testIdAttribute: 'data-test' })
 
 const renderCmp = props => render(
   <ThemeProvider theme={{ colors: {} }}>
     <ShoppingListItem {...props} />
   </ThemeProvider>
 )
-
-const openBottom = (screenArg, name) => {
-  const spanName = screenArg.getByText(name)
-  fireEvent.click(spanName)
-}
 
 test('show value value', () => {
   const item = {
@@ -50,9 +48,7 @@ test('call decrement function', () => {
     onQuantity
   })
 
-  openBottom(screen, item.name)
-
-  const btn = screen.getByText('-')
+  const btn = screen.getByTestId('quantity-decrement')
   fireEvent.click(btn)
 
   expect(onQuantity).toBeCalledWith(item.id, 'decrement')
@@ -73,9 +69,7 @@ test('call increment function', () => {
     onQuantity
   })
 
-  openBottom(screen, item.name)
-
-  const btn = screen.getByText('+')
+  const btn = screen.getByTestId('quantity-increment')
   fireEvent.click(btn)
 
   expect(onQuantity).toBeCalledWith(item.id, 'increment')
@@ -97,8 +91,6 @@ test('call onValueChange callback', () => {
     onValueChange
   })
 
-  openBottom(screen, item.name)
-
   const input = screen.getByPlaceholderText('Value')
   fireEvent.change(input, { target: { value: 13 } })
 
@@ -116,8 +108,6 @@ test('call onRemove callback', () => {
   const onRemove = jest.fn()
 
   renderCmp({ item, onRemove })
-
-  openBottom(screen, item.name)
 
   const removeBtn = screen.getByText('Remover')
   fireEvent.click(removeBtn)
