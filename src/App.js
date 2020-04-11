@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { hot } from 'react-hot-loader/root'
 import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
+import ReactGA from 'react-ga'
 import theme from './theme'
 import { Head } from './Head'
 import { Header } from './Header'
@@ -9,19 +10,28 @@ import { Main } from './Main'
 import { Shopping } from './Shopping'
 import AppStyle from './App.style'
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Head />
+const App = () => {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.initialize('UA-163363657-1')
+      ReactGA.pageview(window.location.pathname + window.location.search)
+    }
+  }, [])
 
-    <Normalize />
-    <AppStyle />
+  return (
+    <ThemeProvider theme={theme}>
+      <Head />
 
-    <Header />
+      <Normalize />
+      <AppStyle />
 
-    <Main>
-      <Shopping />
-    </Main>
-  </ThemeProvider>
-)
+      <Header />
+
+      <Main>
+        <Shopping />
+      </Main>
+    </ThemeProvider>
+  )
+}
 
 export default hot(App)
