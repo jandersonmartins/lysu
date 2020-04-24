@@ -3,8 +3,10 @@ import { Helmet } from 'react-helmet'
 
 const Head = () => (
   <Helmet>
-    <title>Lysu</title>
+    <title>Lysu - Online Shopping List</title>
     <meta charSet="utf-8" />
+    <meta name="description" content="Lysu - Online Shopping List" />
+
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content="Lysu - Online Shopping List" />
     <meta property="og:site_name" content="Lysu" />
