@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import { hot } from 'react-hot-loader/root'
 import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
@@ -20,16 +20,18 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Head />
+      <Suspense fallback={<h1>...</h1>}>
+        <Head />
 
-      <Normalize />
-      <AppStyle />
+        <Normalize />
+        <AppStyle />
 
-      <Header />
+        <Header />
 
-      <Main>
-        <Shopping />
-      </Main>
+        <Main>
+          <Shopping />
+        </Main>
+      </Suspense>
     </ThemeProvider>
   )
 }

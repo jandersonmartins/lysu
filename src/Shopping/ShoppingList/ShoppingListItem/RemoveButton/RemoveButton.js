@@ -1,9 +1,9 @@
 import React from 'react'
 import * as S from './RemoveButton.styles'
 
-const RemoveButton = props => (
+const RemoveButton = ({ children, ...props }) => (
   <S.RemoveButton {...props}>
-    Remover
+    {children}
   </S.RemoveButton>
 )
 

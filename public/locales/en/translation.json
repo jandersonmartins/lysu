@@ -1,5 +1,6 @@
 {
   "items": "Items",
   "totalValue": "Total Value",
-  "add": "Add"
+  "add": "Add",
+  "remove": "Remove"
 }

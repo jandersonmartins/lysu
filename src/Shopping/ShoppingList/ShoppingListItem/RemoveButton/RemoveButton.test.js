@@ -5,8 +5,10 @@ import RemoveButton from './RemoveButton'
 
 test('should render correctly', () => {
   const { container } = render(
-    <ThemeProvider theme={{ colors: {} }} >
-      <RemoveButton />
+    <ThemeProvider theme={{ colors: {} }}>
+      <RemoveButton>
+        Remover
+      </RemoveButton>
     </ThemeProvider>
   )
 

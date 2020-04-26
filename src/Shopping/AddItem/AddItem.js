@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next';
 import * as S from './AddItem.styles'
 
 const AddItem = ({ onItem }) => {
   const [text, setText] = useState('')
+
+  const { t } = useTranslation()
 
   const handleChange = evt => setText(evt.target.value)
 
@@ -15,14 +18,14 @@ const AddItem = ({ onItem }) => {
   return (
     <S.AddItem>
       <S.Input
-        placeholder="Adicionar"
+        placeholder={t('add')}
         onChange={handleChange}
         value={text}
         name="new_item"
       />
 
       <S.Buttom disabled={!text.length} onClick={handleClick}>
-        Adicionar
+        {t('add')}
       </S.Buttom>
     </S.AddItem>
   )
