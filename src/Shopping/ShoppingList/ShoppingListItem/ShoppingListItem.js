@@ -6,6 +6,7 @@ import {
   FaPlus,
   FaMinus
 } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 import { RoundButton } from './RoundButton'
 import { RemoveButton } from './RemoveButton'
 import { formatCurrency } from '../../helpers'
@@ -18,6 +19,8 @@ const ShoppingListItem = ({
   onRemove
 }) => {
   const [showBottom, setShowBottom] = useState(true)
+
+  const { t } = useTranslation()
 
   const { value, quantity, id, name } = item
 
@@ -36,20 +39,20 @@ const ShoppingListItem = ({
     <S.Li>
       <S.Top onClick={toggleShow}>
         <S.Span>{name} {getIcon()}</S.Span>
-        <S.Span data-test="total-item">{formatCurrency(value * quantity)}</S.Span>
+        <S.Span data-testid="total-item">{formatCurrency(value * quantity)}</S.Span>
       </S.Top>
 
       {showBottom && (
         <S.Bottom>
           <S.HandlersSection>
             <S.Handlers>
-              <RoundButton data-test="quantity-decrement" onClick={decrement}>
+              <RoundButton data-testid="quantity-decrement" onClick={decrement}>
                 <FaMinus />
               </RoundButton>
 
-              <S.Quantity data-test="quantity">{quantity}</S.Quantity>
+              <S.Quantity data-testid="quantity">{quantity}</S.Quantity>
 
-              <RoundButton data-test="quantity-increment" onClick={increment}>
+              <RoundButton data-testid="quantity-increment" onClick={increment}>
                 <FaPlus/>
               </RoundButton>
             </S.Handlers>
@@ -67,7 +70,9 @@ const ShoppingListItem = ({
             </S.Handlers>
           </S.HandlersSection>
 
-          <RemoveButton data-test="remove-item" onClick={() => onRemove(id)} />
+          <RemoveButton data-testid="remove-item" onClick={() => onRemove(id)}>
+            {t('remove')}
+          </RemoveButton>
         </S.Bottom>
       )}
     </S.Li>

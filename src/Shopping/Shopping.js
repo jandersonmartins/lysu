@@ -1,6 +1,6 @@
 import React from 'react'
 import createPersistedReducer from 'use-persisted-reducer'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 import reducer, { INITIAL_STATE, Types } from './reducer'
 import { AddItem } from './AddItem'
 import { ShoppingList } from './ShoppingList'
@@ -13,7 +13,7 @@ const usePersistedReducer = createPersistedReducer('shopping')
 const Shopping = () => {
   const [{ items }, dispatch] = usePersistedReducer(reducer, INITIAL_STATE)
 
- const { t } = useTranslation()
+  const { t } = useTranslation()
 
   const handleOnItem = name => dispatch({
     type: Types.ADD_ITEM,
@@ -47,7 +47,7 @@ const Shopping = () => {
 
       <S.TotalItemsContainer>
         <Totals
-          data-test="items-added"
+          data-testid="items-added"
           label={t('items')}
           value={items.length}
         />
@@ -55,7 +55,7 @@ const Shopping = () => {
         <S.Divisor />
 
         <Totals
-          data-test="total-all-items"
+          data-testid="total-all-items"
           label={t('totalValue')}
           value={totalValue(items)}
         />

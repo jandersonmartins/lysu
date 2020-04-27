@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as S from './RemoveButton.styles'
 
 const RemoveButton = ({ children, ...props }) => (
@@ -6,5 +7,9 @@ const RemoveButton = ({ children, ...props }) => (
     {children}
   </S.RemoveButton>
 )
+
+RemoveButton.propTypes = {
+  children: PropTypes.node
+}
 
 export default RemoveButton

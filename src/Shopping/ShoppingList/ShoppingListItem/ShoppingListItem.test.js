@@ -8,7 +8,7 @@ import {
 import { ThemeProvider } from 'styled-components'
 import ShoppingListItem from './ShoppingListItem'
 
-configure({ testIdAttribute: 'data-test' })
+configure({ testIdAttribute: 'data-testid' })
 
 const renderCmp = props => render(
   <ThemeProvider theme={{ colors: {} }}>
@@ -109,7 +109,7 @@ test('call onRemove callback', () => {
 
   renderCmp({ item, onRemove })
 
-  const removeBtn = screen.getByText('Remover')
+  const removeBtn = screen.getByTestId('remove-item')
   fireEvent.click(removeBtn)
 
   expect(onRemove).toBeCalledWith(item.id)
