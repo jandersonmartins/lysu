@@ -1,9 +1,8 @@
-import React, { useEffect, Suspense } from 'react'
+import React, { useEffect } from 'react'
 import { hot } from 'react-hot-loader/root'
-import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
 import ReactGA from 'react-ga'
-import theme from './theme'
+import { useTranslation } from 'react-i18next'
 import { Head } from './Head'
 import { Header } from './Header'
 import { Main } from './Main'
@@ -11,6 +10,8 @@ import { Shopping } from './Shopping'
 import AppStyle from './App.style'
 
 const App = () => {
+  const { i18n } = useTranslation()
+
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       ReactGA.initialize('UA-163363657-1')
@@ -18,21 +19,21 @@ const App = () => {
     }
   }, [])
 
+  const handleOnSelectLang = key => i18n.changeLanguage(key)
+
   return (
-    <ThemeProvider theme={theme}>
-      <Suspense fallback={<h1>...</h1>}>
-        <Head />
+    <>
+      <Head />
 
-        <Normalize />
-        <AppStyle />
+      <Normalize />
+      <AppStyle />
 
-        <Header />
+      <Header currentLang={i18n.language} onSelectLang={handleOnSelectLang} />
 
-        <Main>
-          <Shopping />
-        </Main>
-      </Suspense>
-    </ThemeProvider>
+      <Main>
+        <Shopping />
+      </Main>
+    </>
   )
 }
 

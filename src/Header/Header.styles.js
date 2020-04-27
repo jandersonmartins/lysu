@@ -16,4 +16,9 @@ const H1 = styled.h1`
   color: ${props => props.theme.colors.white};
 `
 
-export { Header, H1 }
+const LanguageContainer = styled.div`
+  position: absolute;
+  right: 2rem;
+`
+
+export { Header, H1, LanguageContainer }

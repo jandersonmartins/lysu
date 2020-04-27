@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import * as S from './Language.styles'
 
 const LANGUAGES = [
-  { key: 'en', label: 'English' },
+  { key: 'en-US', label: 'English' },
   { key: 'pt-BR', label: 'Português (BR)' }
 ]
 
@@ -21,15 +22,15 @@ const Language = ({ current, onSelect }) => {
 
   return (
     <div>
-      <a onClick={toggleShow} data-testid="current-lang">{currentLang.label}</a>
+      <S.Label onClick={toggleShow} data-testid="current-lang">{currentLang.label}</S.Label>
 
       {showList && (
         <ul data-testid="language-list">
           {languages.map(({ key, label }) => (
             <li key={key}>
-              <a onClick={() => handleOnLangClick(key)} data-testid={key}>
+              <S.Label onClick={() => handleOnLangClick(key)} data-testid={key}>
                 {label}
-              </a>
+              </S.Label>
             </li>
           ))}
         </ul>
