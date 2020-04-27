@@ -6,10 +6,10 @@ describe('Shopping flow', () => {
   it('add items flow', () => {
     // Add items
     cy.get('[name="new_item"]').type('Rice')
-    cy.contains('Adicionar').click()
+    cy.get('[data-testid="add-new-item"]').click()
 
     cy.get('[name="new_item"]').type('Beans')
-    cy.contains('Adicionar').click()
+    cy.get('[data-testid="add-new-item"]').click()
 
     // increment quantity
     cy.get('[data-testid="quantity-increment"]')
@@ -45,9 +45,11 @@ describe('Shopping flow', () => {
     cy.get('[data-testid="total-item"]')
       .contains('$ 10')
 
+    // TODO: Get from locale
+
     // assert all items total
     cy.get('[data-testid="total-all-items"]')
-      .contains('Valor Total $ 15,11')
+      .contains('Total Value $ 15,11')
 
     // remove items
     cy.get('[data-testid="remove-item"]').click({ multiple: true })
