@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import * as S from './Language.styles'
 
 const LANGUAGES = [
-  { key: 'en-US', label: 'English' },
-  { key: 'pt-BR', label: 'Português (BR)' }
+  { key: 'en-US', label: 'EN' },
+  { key: 'pt-BR', label: 'PT' }
 ]
 
 const Language = ({ current, onSelect }) => {
@@ -21,11 +21,11 @@ const Language = ({ current, onSelect }) => {
   }
 
   return (
-    <div>
+    <S.Container>
       <S.Label onClick={toggleShow} data-testid="current-lang">{currentLang.label}</S.Label>
 
       {showList && (
-        <ul data-testid="language-list">
+        <S.Ul data-testid="language-list">
           {languages.map(({ key, label }) => (
             <li key={key}>
               <S.Label onClick={() => handleOnLangClick(key)} data-testid={key}>
@@ -33,9 +33,9 @@ const Language = ({ current, onSelect }) => {
               </S.Label>
             </li>
           ))}
-        </ul>
+        </S.Ul>
       )}
-    </div>
+    </S.Container>
   )
 }
 

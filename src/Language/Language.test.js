@@ -12,7 +12,7 @@ const renderCmp = props => render(
 test('show initial current label', () => {
   renderCmp({ current: 'en-US', onSelect: jest.fn() })
 
-  expect(screen.getByTestId('current-lang')).toHaveTextContent('English')
+  expect(screen.getByTestId('current-lang')).toHaveTextContent('EN')
 })
 
 test('should not see languages list', () => {
