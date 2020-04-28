@@ -6,7 +6,7 @@ import Header from './Header'
 test('renders correcty', () => {
   const { container } = render(
     <ThemeProvider theme={{ colors: {} }}>
-      <Header />
+      <Header currentLang="en-US" onSelectLang={jest.fn()} />
     </ThemeProvider>
   )
 

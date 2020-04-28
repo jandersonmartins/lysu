@@ -1,9 +1,17 @@
-import React from 'react'
-import { render } from '@testing-library/react'
+import React, { Suspense } from 'react'
+import { render, waitFor, screen } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
+import './i18n'
 import App from './App'
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />)
-  const linkElement = getByText(/lysu/i)
-  expect(linkElement).toBeInTheDocument()
+test('renders learn react link', async () => {
+  render(
+    <ThemeProvider theme={{ colors: {} }}>
+      <Suspense fallback={<div />}>
+        <App />
+      </Suspense>
+    </ThemeProvider>
+  )
+
+  await waitFor(() => expect(screen.getByText(/lysu/i)).toBeInTheDocument())
 })

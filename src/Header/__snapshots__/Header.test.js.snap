@@ -13,6 +13,27 @@ exports[`renders correcty 1`] = `
   color: inherit;
 }
 
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+}
+
+.c5 {
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
 .c0 {
   position: fixed;
   width: 100vw;
@@ -36,6 +57,11 @@ exports[`renders correcty 1`] = `
   font-size: 2rem;
 }
 
+.c3 {
+  position: absolute;
+  right: 2rem;
+}
+
 <header
   class="c0"
 >
@@ -49,5 +75,19 @@ exports[`renders correcty 1`] = `
       Lysu
     </a>
   </h1>
+  <div
+    class="c3"
+  >
+    <div
+      class="c4"
+    >
+      <a
+        class="c5"
+        data-testid="current-lang"
+      >
+        EN
+      </a>
+    </div>
+  </div>
 </header>
 `;
