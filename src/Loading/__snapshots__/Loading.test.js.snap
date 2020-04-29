@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+.c0 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 1.6rem;
+}
+
+.c1 {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  -webkit-animation: bounce .4s infinite alternate;
+  animation: bounce .4s infinite alternate;
+}
+
+.c1:first-child {
+  -webkit-animation-delay: .6s;
+  animation-delay: .6s;
+}
+
+.c1:last-child {
+  -webkit-animation-delay: .2s;
+  animation-delay: .2s;
+}
+
+.c2 {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  margin: 0 .5rem;
+  -webkit-animation: bounce .4s infinite alternate;
+  animation: bounce .4s infinite alternate;
+}
+
+.c2:first-child {
+  -webkit-animation-delay: .6s;
+  animation-delay: .6s;
+}
+
+.c2:last-child {
+  -webkit-animation-delay: .2s;
+  animation-delay: .2s;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  />
+  <div
+    class="c2"
+  />
+  <div
+    class="c1"
+  />
+</div>
+`;
