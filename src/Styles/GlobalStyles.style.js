@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const AppStyle = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: inherit;
     margin: 0;
@@ -17,4 +17,4 @@ const AppStyle = createGlobalStyle`
   }
 `
 
-export default AppStyle
+export default GlobalStyles
