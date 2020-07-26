@@ -2,10 +2,10 @@ import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
+import { BouncingLoader } from '@jandersonmartins/bouncing-loader'
 import theme from './theme'
 import { GlobalStyles } from './Styles'
 import App from './App'
-import { Loading } from './Loading'
 import * as serviceWorker from './serviceWorker'
 
 import './i18n'
@@ -14,7 +14,7 @@ ReactDOM.render((
   <ThemeProvider theme={theme}>
     <Normalize />
     <GlobalStyles />
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<BouncingLoader color={theme.colors.primaryDark} />}>
       <App />
     </Suspense>
   </ThemeProvider>
